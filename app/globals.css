@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  }
+
+ 
+.lista{
+  align-items: center;
+}
+.hot-item {
+  display: flex;
+  align-items: center;
+}
+
+.hot-item svg {
+  margin-right: 5px; /* Ajusta el espacio entre el icono y el texto */
+}
+ 
+/* Banner.module.css */
+#bannerFondo {
+  width: 100%;
+  background-color: #2F4F4F;
+  margin: 4vh 0;
+  height: 5vh;
+  overflow-x: hidden;
+}
+
+#bannerFondo #texto {
+  position: relative;
+  color: #ffd700; /* Cambiado a dorado */
+  font-size: 2vh;
+  font-family: 'Roboto-Light';
+  padding: 1vh 0;
+  line-height: 3vh;
+  max-height: 45px;
+  animation-name: banner;
+  animation-duration: 60s; /* Reducido a la mitad para una animación más rápida */
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  white-space: nowrap;
+  top: 0;
+  right: 0;
+}
+
+@keyframes banner {
+  from { left: 100%; }
+  to { left: -200%; } /* Ajustado para un desplazamiento más largo */
+}
+
+#guionBajo{
+  color: #2F4F4F;
+}
+.footer {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #000000;
+  padding: 20px;
+  text-align: center;
+}
+

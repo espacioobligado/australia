@@ -1,0 +1,30 @@
+/* Banner.module.css */
+#bannerFondo {
+    width: 100%;
+    background-color: #2F4F4F;
+    margin: 4vh 0;
+    height: 5vh;
+    overflow-x: hidden;
+}
+
+#bannerFondo #texto {
+    position: relative;
+    color: #ffd700; /* Cambiado a dorado */
+    font-size: 2vh;
+    font-family: 'Roboto-Light';
+    padding: 1vh 0;
+    line-height: 3vh;
+    max-height: 45px;
+    animation-name: banner;
+    animation-duration: 120s!important; /* Reducido a la mitad para una animación más rápida */
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    white-space: nowrap;
+    top: 0;
+    right: 0;
+}
+
+@keyframes banner {
+    from { left: 100%; }
+    to { left: -100%; } /* Ajustado para un desplazamiento más largo */
+}

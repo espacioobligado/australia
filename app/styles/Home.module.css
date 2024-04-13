@@ -1,0 +1,43 @@
+.container {
+    min-height: 100vh;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .main {
+    padding: 5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+ 
+
+  .imageContainer {
+    width: 50vh;
+    height: 33.33vh;
+    margin-bottom: 2rem;
+  }
+  
+  .countryList {
+    text-align: center;
+  }
+  
+  .countryList h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .countryList ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .countryList li {
+    margin-bottom: 0.5rem;
+  }
+  
