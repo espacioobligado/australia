@@ -10,25 +10,12 @@ import Banner from './Banner/banner'
 import Arrivos from './[country]/Arrivos/Arrivos'
 import Lastcall from './[country]/Lastcall/Lastcall'
 
-async function getData() {
-  
-  const query = 'SELECT * FROM hot';
-  const result = await conn.query(query); 
-  const hotData = result.rows;
-  
-  let array = [];
-  for (let i = 0; i < hotData.length; i++) {
-    array.push(hotData[i].country);
-  }
- return array;
-}  
+ 
 
 
 
 export default async function Home(  ) {
 
- 
- const hotdata = await getData()
  
   const countries = [
      'Australia'

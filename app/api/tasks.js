@@ -50,28 +50,7 @@ import conn from '../../lib/db'
        
 
 const Tasks = {
-    getHotData: async function () {
-        try {
-        const query = 'SELECT * FROM hot';
-        const result = await conn.query(query);
-        const hotData = result.rows;
-        return hotData;
-        } catch (error) {
-        console.error('Error al obtener los datos de la tabla hot:', error);
-        return [];
-        }
-    },
     
-    fetchHotData: async function () {
-        try {
-        const hotData = await this.getHotData();
-        //console.log('Datos de la tabla hot:', hotData);
-        return hotData;
-        } catch (error) {
-        console.error('Error al obtener los datos de la tabla hot:', error);
-        return [];
-        }
-    }
     };
   
     
