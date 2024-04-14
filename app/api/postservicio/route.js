@@ -14,7 +14,7 @@ export async function POST(request){
 
             const { servicio, zone, region, timePosteo } = formData;
         
-            const query = 'INSERT INTO public.servicio(servicio, zone, region,timePosteo) VALUES ($1, $2, $3, $4)';
+            const query = 'INSERT INTO public.servicio(bienoservicio, zone, region,timePosteo) VALUES ($1, $2, $3, $4)';
             
             const values = [ servicio, zone, region, timePosteo ];
 
