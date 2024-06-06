@@ -1,0 +1,10 @@
+
+
+drop TABLE usuarios 
+drop TABLE mulas
+drop TABLE mulasEliminadas 
+drop TABLE servicios  
+drop TABLE serviciosEliminados
+drop TABLE chat 
+drop TABLE mensajes 
+

@@ -1,0 +1,70 @@
+CREATE TABLE mulas (
+    id VARCHAR(255),
+    usuario INT REFERENCES usuarios(id),
+    region VARCHAR(255),
+    zone VARCHAR(255),
+    llegada TIMESTAMP,
+    salidade VARCHAR(255),
+    provincia VARCHAR(255),
+    municipio VARCHAR(255),
+    otherlocation VARCHAR(255),
+    timeposteo TIMESTAMP,
+    espacio VARCHAR(255)
+);
+
+CREATE TABLE mulasEliminadas (
+    id VARCHAR(255),
+    usuario INT REFERENCES usuarios(id),
+    region VARCHAR(255),
+    zone VARCHAR(255),
+    llegada TIMESTAMP,
+    salidade VARCHAR(255),
+    provincia VARCHAR(255),
+    municipio VARCHAR(255),
+    otherlocation VARCHAR(255),
+    timeposteo TIMESTAMP,
+    espacio VARCHAR(255)
+);
+
+CREATE TABLE servicios (
+    id VARCHAR(255),
+    region VARCHAR(255),
+    usuario INT REFERENCES usuarios(id),
+    bienoservicio VARCHAR(255),
+    zone VARCHAR(255),
+    price VARCHAR(255),
+    timeposteo TIMESTAMP
+);
+
+CREATE TABLE serviciosEliminados (
+    id VARCHAR(255),
+    region VARCHAR(255),
+    usuario INT REFERENCES usuarios(id),
+    bienoservicio VARCHAR(255),
+    zone VARCHAR(255),
+    price VARCHAR(255),
+    timeposteo TIMESTAMP
+);
+
+CREATE TABLE mensajes (
+    id SERIAL PRIMARY KEY,
+    contenido TEXT,
+    remitente INT REFERENCES usuarios(id),
+    chat_id INT REFERENCES chat(id),
+    timeEnviado TIMESTAMP
+);
+
+CREATE TABLE chat (
+    id SERIAL PRIMARY KEY,
+    remitente INT REFERENCES usuarios(id),          
+    publicaciondeusuario INT REFERENCES usuarios(id),
+    activo TEXT,
+    timeCreated TIMESTAMP     
+);
+
+CREATE TABLE usuarios (
+    id SERIAL PRIMARY KEY,
+    nombre TEXT,
+    lastConnection TIMESTAMP,     
+    timeCreated TIMESTAMP   
+);
