@@ -97,7 +97,7 @@ const ArribosLogicComponent = () => {
     useEffect(() => {
         // setDisplayArribos(arribos);
         handleUpdateDisplayArribos(arribos);
-    }, [arribos]);
+    }, [arribos,handleUpdateDisplayArribos]);
 
     useEffect(() => {
         if (!showArrivedOnly && !sortByArrival) {
