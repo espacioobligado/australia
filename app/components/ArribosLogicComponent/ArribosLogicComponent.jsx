@@ -97,14 +97,14 @@ const ArribosLogicComponent = () => {
     useEffect(() => {
         // setDisplayArribos(arribos);
         handleUpdateDisplayArribos(arribos);
-    }, [arribos,handleUpdateDisplayArribos]);
+    }, [arribos]);
 
     useEffect(() => {
         if (!showArrivedOnly && !sortByArrival) {
             // setDisplayArribos(arribos);
             handleUpdateDisplayArribos(arribos);
         }
-    }, [showArrivedOnly, sortByArrival, arribos,handleUpdateDisplayArribos]);
+    }, [showArrivedOnly, sortByArrival, arribos]);
 
     useEffect(() => {
         scrollToElementBlue(arribos, lastValue, usuario);
