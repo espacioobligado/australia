@@ -32,8 +32,8 @@ const ChatsDisponibles = ({isMobile, userIdPublicador}) => {
             }
         };
         fetchMensajes();
-    }, [chatSeleccionado, chatIdAnterior]);
-
+    }, [chatSeleccionado, chatIdAnterior,userIdPublicador]);
+//agregue userIdPublicador
     const handleClickChat = async (chatId) => {
         const mensajesChat = mensajes1.filter(mensaje => mensaje.chat_id === chatId);
         

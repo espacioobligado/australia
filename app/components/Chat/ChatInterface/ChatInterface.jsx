@@ -63,7 +63,7 @@ const ChatInterface = (id) => {
       }
       fetchUserId();
       
-    }, [cheuqueo,publicacionDeUsuario]);//crear los chats | lastConnection
+    }, [cheuqueo,publicacionDeUsuario,cookies.usuario]);//crear los chats | lastConnection
 
     useEffect(() => {
       setCheuqueo(true)
