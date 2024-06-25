@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { mergeData } from '../../../Helpers/LastCallMergeData';
 import { scrollToElementRed } from '../../../Helpers/scrollToElementRed';
 import { fetchOrCreateUser } from '../../../Helpers/fetchOrCreateUser';
-import Dots from '../../components/Dots/Dots';
+import Dots from '../Dots/Dots';
 // import SearchBarServicios from '../../components/SearchBarServicios/SearchBarServicios';
 import LastCallComponent from '../LastCallComponent/LastCallComponent';
 import { useSearchBar } from '../../SearchBarContext'; // Importa el contexto
