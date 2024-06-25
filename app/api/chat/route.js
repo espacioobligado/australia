@@ -1,6 +1,6 @@
 // app/api/chat/route.js
 
-import { conn } from '../../../database'; // Asegúrate de importar tu conexión a la base de datos correctamente
+import { conn } from '../../../lib/db'; // Asegúrate de importar tu conexión a la base de datos correctamente
 
 export default async function lastConnection(req, res) {
   const { cookie } = req.body; // Asumo que obtienes el valor de cookie desde el cuerpo de la solicitud
