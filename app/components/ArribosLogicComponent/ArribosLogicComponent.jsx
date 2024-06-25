@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {mergeData} from '../../../Helpers/arribosMergeData'
 import {getCurrentDay} from '../../../Helpers/getCurrentDay'
 import {scrollToElementBlue} from '../../../Helpers/scrollToElementBlue';
-import Dots from '../Dots/Dots';
+import Dots from '../../components/Dots/Dots';
 import crearUsuario from '../../components/usuarios';
 import { useSearchBar } from '../../SearchBarContext'; // Importa el contexto
 import styles from './ArribosLogicComponent.module.css';
