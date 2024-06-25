@@ -75,6 +75,7 @@ const ArribosLogicComponent = () => {
         fetchOrCreateUser()
     }, [cookies.usuario, setCookie]);
     
+
     const toggleShowArrivedOnly = () => {
         setShowArrivedOnly(!showArrivedOnly);
         setSortByArrival(false);  
@@ -103,11 +104,12 @@ const ArribosLogicComponent = () => {
             // setDisplayArribos(arribos);
             handleUpdateDisplayArribos(arribos);
         }
-    }, [showArrivedOnly, sortByArrival, arribos]);
+    }, [showArrivedOnly, sortByArrival, arribos,handleUpdateDisplayArribos]);
 
     useEffect(() => {
         scrollToElementBlue(arribos, lastValue, usuario);
     }, [arribos, lastValue, usuario]);
+
 
     if (!isMounted) {
         return null;

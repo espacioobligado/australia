@@ -63,7 +63,7 @@ const ChatInterface = (id) => {
       }
       fetchUserId();
       
-    }, [cheuqueo]);//crear los chats | lastConnection
+    }, [cheuqueo,publicacionDeUsuario]);//crear los chats | lastConnection
 
     useEffect(() => {
       setCheuqueo(true)
@@ -79,8 +79,8 @@ const ChatInterface = (id) => {
         setUsuarioId(usuarioChatterId)
       };
     fetchOrCreateUser2()
-    }, [])//Get Usuario Id
-
+    }, [cookies.usuario])//Get Usuario Id
+//agreuge [cookies.usuario] por error en compiler en arribos tambien handleUpdate en [] por mismo error 
     useEffect(() => {
       const fetchOrCreateUser = async () => {
         try {
