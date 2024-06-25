@@ -1,6 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
 
-export const handleConfirmationMulas = async (e, toast, formData, setIsLoading, recaptcha, setLoadingText, router, tipo) => {
+
+
+export const handleConfirmationMulas = async (playAudio,e, toast, formData, setIsLoading, recaptcha, setLoadingText, router, tipo) => {
+   
     e.preventDefault();
     setIsLoading(true);
 
@@ -21,6 +24,7 @@ export const handleConfirmationMulas = async (e, toast, formData, setIsLoading, 
     }
 
     const showConfirmationToast = (confirmationMessage) => {
+    playAudio()
         toast.info(`${confirmationMessage}`, {
             position: "top-right",
             autoClose: 2000,

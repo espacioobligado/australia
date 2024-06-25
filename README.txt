@@ -228,7 +228,7 @@ cookie usuario tiene que tener un token de valdiacion porque isno crear una cook
 
 
                         no ahga falta recargar chat , si esta en updatepostalascall que te recargue los cahts cada tanto tiempo
-        |               si el chat with es el tuyo y se abre el updatepostlastcall que ointe yovoy y yonecesito a la vez
+                        si el chat with es el tuyo y se abre el updatepostlastcall que ointe yovoy y yonecesito a la vez
                         setia todo y al eliminar que no recargue la pagina, se vaya del array , si se concreta como si nada sino vuelve al array e informa el error
                         -------------------------------------------------------------------------------------------------
                        
@@ -266,3 +266,12 @@ ERRORES EN CONSOLA, ESTETICA SE PUEDE MEJORAR?
 
 
                                         optimizar updatepost
+
+                                        AGARRA IP , SI TIENE EL MISMO IP DEL USUARIO QUE INTENTA INICIAR SESION SE TOMA, SINO NO        
+                                        SI QUIERE CREEARSE UNO SI O SI CON CONTRASEÑA, 
+
+                                        interfaz de updatePostLAstCall es fea. Si alguien em habla tengo que recargar la pagia para abir chat?
+                                            mejor que lso chats esten ya colgados a la izquierda y pueda hablar ocn cada uno de ellos desde ahi
+
+
+                                            formatLlegada esta doble

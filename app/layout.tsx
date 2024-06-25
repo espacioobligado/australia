@@ -1,8 +1,15 @@
-import { Metadata } from "next";
+import { Metadata} from "next";
+import Script from 'next/script'
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import { SearchBarProvider } from './SearchBarContext';
+import { AudioProvider } from './AudioContext';
+
+config.autoAddCss = false;
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,11 +27,14 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-       {/* <Script src="https://example.com/script.js" /> */}
        <body className={inter.className}>
-        <Navbar/>
-          {children}
-        <Footer/>
+       <AudioProvider>
+        <SearchBarProvider>
+            <Navbar/>
+              {children}
+            <Footer/>
+          </SearchBarProvider>
+        </AudioProvider>
        </body>
     </html>
   );

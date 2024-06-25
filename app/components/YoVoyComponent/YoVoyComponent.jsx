@@ -7,9 +7,9 @@ import { mobile496 } from '../../../Helpers/mobile496';
 import {getCurrentDate} from '../../../Helpers/getCurrentDate'
 import ReCAPTCHA from "react-google-recaptcha";
 import Select from 'react-select'
-import styles from '../../styles/styles.module.css';
+import styles from './YoVoyComponent.module.css';
 
-const YoVoyComponent = ({handleInputChange,formData,renderCities,recaptcha,isLoading,setIsLoading,loadingText,setLoadingText,confirmationMessage,handleConfirmationMulas,router}) => {
+const YoVoyComponent = ({playAudio,handleInputChange,formData,renderCities,recaptcha,isLoading,setIsLoading,loadingText,setLoadingText,confirmationMessage,handleConfirmationMulas,router}) => {
     //traigo datos
     const zonesWithRegions = RegionsForAustralia()
     const zonesForArgentina = ZonesForArgentina()
@@ -32,8 +32,8 @@ const YoVoyComponent = ({handleInputChange,formData,renderCities,recaptcha,isLoa
           ];
 
         return (
-        <div style={{ minHeight: '100vh' }}>
-            <form onSubmit={(e) => handleConfirmationMulas(e, toast, formData, setIsLoading, recaptcha, setLoadingText, router,'mulas')}>
+        <div>
+            <form onSubmit={(e) => handleConfirmationMulas(playAudio, e, toast, formData, setIsLoading, recaptcha, setLoadingText, router,'mulas')}>
             <main style={{ color: '#333', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: '10px' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems:'center', width: isMobile ? 'auto' : '30vh' }}>
@@ -71,8 +71,8 @@ const YoVoyComponent = ({handleInputChange,formData,renderCities,recaptcha,isLoa
                             max={maxDate1} 
                             min={getCurrentDate1} 
                             className={styles["gray-placeholder-input"]}
-                            onFocus={(e) => e.target.classList.add('focusedBlue')}
-                            onBlur={(e) => e.target.classList.remove('focusedBlue')}
+                            onFocus={(e) => e.target.classList.add(styles.focusedBlue)}
+                            onBlur={(e) => e.target.classList.remove(styles.focusedBlue)}
                             />
                         </div>
                    </div>
@@ -131,8 +131,8 @@ const YoVoyComponent = ({handleInputChange,formData,renderCities,recaptcha,isLoa
                                     onChange={handleInputChange} 
                                     placeholder="Ej. Manly...Sidney...Indonesia" 
                                     style={{ marginTop: isMobile ? '5px' : '-2px',padding:'6px',border:'1px solid lightgray'}} 
-                                    onFocus={(e) => e.target.classList.add('focusedBlue')}
-                                    onBlur={(e) => e.target.classList.remove('focusedBlue')}
+                                    onFocus={(e) => e.target.classList.add(styles.focusedBlue)}
+                                    onBlur={(e) => e.target.classList.remove(styles.focusedBlue)}
                                     />
                                 </div>
                             )}

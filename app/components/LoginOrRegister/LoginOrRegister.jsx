@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const LoginOrRegister = ({ onLogin }) => {
+const LoginOrRegister = ({ onLogin, handleCloseModal }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [isRegistering, setIsRegistering] = useState(false);
@@ -18,14 +18,19 @@ const LoginOrRegister = ({ onLogin }) => {
         if (isRegistering) {
             // Lógica de registro
         } else {
-            // Lógica de inicio de sesión
-            // Suponiendo que el inicio de sesión es exitoso, llamamos a la función onLogin
             onLogin(username);
         }
     };
 
+    const handleClose = () => {
+        handleCloseModal();
+    };
+
     return (
-        <div style={{ maxWidth: "400px", margin: "auto" }}>
+        <div style={{ maxWidth: "60vh", margin: "auto" }}>
+            <div style={{ textAlign: "right", marginBottom: "10px" }}>
+                <button onClick={handleClose}>&times;</button>
+            </div>
             <h2 style={{ marginBottom: '10px', textAlign: 'center' }}>
                 {isRegistering ? "Registro" : "Inicio de sesión"}
             </h2>

@@ -34,7 +34,7 @@ export const mergeData = async () => {
             delete servicioCopy.usuario;
             // delete servicioCopy.espacio;
             if (nombre) {
-                mergedData[servicioCopy.id] = { ...servicioCopy, nombre };
+                mergedData[servicioCopy.id] = { ...servicioCopy, usuario:nombre };
             }
         });
 

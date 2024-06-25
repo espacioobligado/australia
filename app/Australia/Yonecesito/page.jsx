@@ -26,15 +26,21 @@ const Yonecesito = () => {
                     const nuevoUsuario = await crearUsuario();
                     setUsuario(nuevoUsuario);
                     setCookie('usuario', nuevoUsuario, { path: '/' });
-                } else {
+                }
+                else {
                     setUsuario(cookies.usuario);
                 }
             } catch (error) {
                 console.error('Error al obtener o crear el usuario:', error);
             }
         };
-    
+    // if(!cookies.usuario){
+    //     console.log('no hay cookie')
+    // }else{
+    //     fetchOrCreateUser2()
+    // }
         fetchOrCreateUser();
+        
     }, [cookies.usuario, setCookie]);
     
     useEffect(() => {

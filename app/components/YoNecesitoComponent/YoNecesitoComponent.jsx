@@ -4,7 +4,7 @@ import { mobile496 } from '../../../Helpers/mobile496';
 import ReCAPTCHA from "react-google-recaptcha";
 import RegionsForAustralia from '../Zonas/RegionsForAustralia'
 import Select from 'react-select'
-import styles from '../../styles/styles.module.css';
+import styles from './YoNecesitoComponent.module.css';
 
 const YoNecesitoComponent = ({handleInputChange,formData,recaptcha,isLoading,setIsLoading,loadingText,setLoadingText,handleConfirmationServicios,router}) => {
     //traigo datos
@@ -20,7 +20,7 @@ const YoNecesitoComponent = ({handleInputChange,formData,recaptcha,isLoading,set
        
     return (
         <>
-         <div style={{ minHeight: '100vh' }}>
+         <div>
                 <form onSubmit={(e) => handleConfirmationServicios(isMobile ? e : e, toast, formData, setIsLoading, recaptcha, setLoadingText, router, 'servicios')}>
                     <main style={{  color: '#333', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: '10px',alignItems:isMobile ? 'center':'' }}>

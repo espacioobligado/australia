@@ -27,20 +27,20 @@ const getusuarios = async () => {
 
 export const mergeData = async () => {
     try {
-        const arrivos = await traeArribos();
+        const arribos = await traeArribos();
         const usuarios = await getusuarios();
 
         const mergedData = {};
-        arrivos.forEach(arrivo => {
-            const nombre = usuarios.find(usuario => usuario.id === arrivo.usuario)?.nombre;
-            const arrivoCopy = { ...arrivo };
-            delete arrivoCopy.usuario;
-            delete arrivoCopy.espacio;
+        arribos.forEach(arribo => {
+            const nombre = usuarios.find(usuario => usuario.id === arribo.usuario)?.nombre;
+            const arriboCopy = { ...arribo };
+            delete arriboCopy.usuario;
+            delete arriboCopy.espacio;
             if (nombre) {
-                mergedData[arrivo.id] = { ...arrivoCopy, nombre };
+                mergedData[arribo.id] = { ...arriboCopy, usuario:nombre };
             }
         });
-
+         
         const mergedDataArray = Object.values(mergedData);
         mergedDataArray.sort((a, b) => new Date(a.timeposteo) - new Date(b.timeposteo));
 
@@ -72,7 +72,7 @@ export const mergeData = async () => {
                 delete obj.timeposteo;  
             }
         });
-
+        console.log(mergedDataArray)
         return mergedDataArray;
     } catch (error) {
         console.error('Error merging data:', error);

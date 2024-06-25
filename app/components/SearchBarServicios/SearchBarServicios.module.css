@@ -1,0 +1,49 @@
+/* SearchBarServicios.module.css */
+.searchContainer {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: left;
+  }
+  
+  .searchBox {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+  }
+  
+  .searchInput {
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    outline: none;
+    background-color: #dddddd;
+  }
+  
+  .searchIcon {
+    margin-left: 10px;
+    color: #888;
+  }
+  
+  .resultsList {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+  
+  .resultItem {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .resultItem:last-child {
+    border-bottom: none;
+  }
+  
+  .resultItem:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }

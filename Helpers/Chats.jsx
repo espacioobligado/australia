@@ -68,8 +68,12 @@ export const getUsuarioId = async (nombre) => {
     const res = await fetch('http://localhost:3000/api/getusuarios');
     const text = await res.text();
     const retorno = JSON.parse(text);   
-    const usuario = retorno.find(usuario => usuario.nombre == nombre);
-    return usuario.id;
+    try{
+      const usuario = retorno.find(usuario => usuario.nombre == nombre);
+      return usuario.id;
+    }catch{
+      console.error('no se encontro el usuario en la base de datos')
+    }
 }
 
 export const getChatsFrom = async (usuarioId) => {
@@ -85,7 +89,6 @@ export const getChatsFromUsers = async (id1,id2) => {
   const text = await res.text();
   const retorno = JSON.parse(text);  
   const chatsFromUser = retorno.filter(chats => chats.publicaciondeusuario == id1 && chats.remitente == id2 );
-  // console.log('chatsFromUser',chatsFromUser)
   if (chatsFromUser.length !== 0) {
     return chatsFromUser[0].id;
   }

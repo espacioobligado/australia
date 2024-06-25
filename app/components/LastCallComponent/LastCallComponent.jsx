@@ -21,7 +21,7 @@ const LastCallComponent = ({ displayServicios  }) => {
                     {displayServicios.map((servicio, index) => (
                         <div key={index} id={index} style={{ textAlign: 'center', backgroundColor: 'darkgray', marginBottom: '20px', border: '1px solid #ccc', borderRadius: '15px', padding: '10px' }}>
                             <p key={`region-${index}`}>{servicio.region}, {servicio.zone}</p>
-                            <ChatLastcallRojo key={`nombre-${index}`} value={servicio.nombre} />
+                            <ChatLastcallRojo key={`nombre-${index}`} value={servicio.usuario} />
                             <p key={`bienoservicio-${index}`}>{servicio.bienoservicio}</p>
                             {/* <strong>necesita</strong>  */}
                             <p key={`price-${index}`}>{servicio.price}</p> 
@@ -31,7 +31,7 @@ const LastCallComponent = ({ displayServicios  }) => {
                 </>
                 ) : (
                     <>
-                        <div style={{minHeight:'100vh' }}>
+                        <div>
                         {/* <ToastContainer /> */}
                         <div style={{ marginLeft: '20px', marginRight: '20px', marginBottom: '5px'}}>
                             <div style={{ display: 'flex', flexDirection: 'row', marginBottom: '20px', marginTop: '15px' }}>
@@ -66,7 +66,7 @@ const LastCallComponent = ({ displayServicios  }) => {
                         {displayServicios.map((servicio, index) => (
                             <div key={index} id={index} style={{ marginLeft: '20px',marginBottom: '20px',display:'flex',color: '#555'}}>
                                 <div key={`region-${index}`}style={{flex: '25%'}}>{servicio.region}, {servicio.zone}</div>
-                                <div key={`nombre-${index}-${index}`} style={{flex: '25%'}}><ChatLastcallRojo key={`nombre2-${index}`} value={servicio.nombre} /></div>
+                                <div key={`nombre-${index}-${index}`} style={{flex: '25%'}}><ChatLastcallRojo key={`nombre2-${index}`} value={servicio.usuario} /></div>
                                 <div key={`bienoservicio-${index}`} style={{flex: '25%'}}>{servicio.bienoservicio}</div>
                                 <div key={`price-${index}`} style={{flex: '25%'}}>{servicio.price}</div>
                             </div>

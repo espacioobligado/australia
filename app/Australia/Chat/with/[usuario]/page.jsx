@@ -4,7 +4,6 @@ import { useEffect, useState, useRef  } from "react";
 import UpdatePostLastCall from '../../../../components/UpdatePostLastCall/UpdatePostLastCall';
 import ChatInterface from '../../../../components/Chat/ChatInterface/ChatInterface';
 import { useCookies } from 'react-cookie';
-import {fetchOrCreateUser} from '../../../../../Helpers/fetchOrCreateUser';
 
 const ChatId = (id) => {
     const [cookies, setCookie] = useCookies(['usuario']);
@@ -15,9 +14,22 @@ const ChatId = (id) => {
     const publicacionDeUsuari = object[clave].replace(/%20/g, ' ');
     const publicacionDeUsuario = decodeURIComponent(publicacionDeUsuari);
     
-    // console.log(id)
     useEffect(() => {
-        fetchOrCreateUser(cookies,setCookie,setUsuario);
+        const fetchOrCreateUser = async () => {
+            try {
+                if (!cookies.usuario) {
+                    const nuevoUsuario = await crearUsuario();
+                    setUsuario(nuevoUsuario);
+                    setCookie('usuario', nuevoUsuario, { path: '/' });
+                }
+                else {
+                    setUsuario(cookies.usuario);
+                }
+            } catch (error) {
+                console.error('Error al obtener o crear el usuario:', error);
+            }
+        };
+        fetchOrCreateUser()
     }, [cookies.usuario, setCookie]);
 
       return (    
@@ -30,7 +42,7 @@ const ChatId = (id) => {
             ) : ( 
                 <ChatInterface key={id} value={id}/>
             )
-        ) : ( 
+            ) : ( 
             <>
             </>
         )}

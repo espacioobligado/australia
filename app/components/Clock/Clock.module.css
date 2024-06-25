@@ -1,0 +1,105 @@
+.bienvenido {
+    background-color: black;
+    color: #fca504;
+    text-shadow: 0 0 20px #fca504;
+    padding: 10px;
+    text-align: center;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    transform: perspective(1000px) rotateX(30deg);
+    transform-origin: center bottom;
+  }
+  .bienvenido1 {
+    background-color: black;
+    color: #fca504;
+    text-shadow: 0 0 20px #fca504;
+    padding: 10px;
+    text-align: center;
+    left: 0;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    height: 100px;
+    margin-bottom: -20px;  
+    transform: perspective(1000px) rotateX(30deg);
+    transform-origin: center bottom;
+  }
+  
+  .bienvenido2 {
+    background-color: rgb(41, 41, 41);
+    height: 50px;
+    width: 100%;
+    z-index: -1;
+    transform: perspective(1000px) rotateX(110deg);
+  }
+  
+  .lineaIzquierda,
+  .lineaDerecha {
+    position: absolute;
+    border-left: 2px solid #000000;
+    width: 10px;
+    height: 50px;  
+    z-index: 1;
+    margin-top: -17px;
+  }
+  
+  .lineaIzquierda {
+    left: 0;
+  }
+  
+  .lineaDerecha {
+    right: 0;
+  }
+  
+  .cartelColgante {
+    background-color: black;
+    color: red;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    padding: 5px;
+    margin-bottom: -30px;
+    width: 165px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .digital-7{
+    font-family: 'digital-7', cursive;
+    font-weight: 400;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5), 
+    0 0 10px rgba(255, 0, 0, 0.5), 
+    0 0 20px rgba(255, 0, 0, 0.5);
+  }
+  
+  .cartelColgante2 {
+    padding: 10px;
+    width: 160px;
+    background-color: rgb(41, 41, 41);
+    border-radius: 2px;
+    height: 65px;
+    transform: perspective(1000px) rotateX(100deg);
+  }
+  
+  .lineaIzquierda {
+    background-color: #000000; 
+    position: relative;
+  }
+  
+  .lineaDerecha {
+    background-color: #000000;  
+    margin-left: 100px;
+    position: relative;
+  } 
+  
+  @font-face {
+    font-family: 'digital-7';
+    src: url('../../fonts/stlyes/digital-7.ttf');
+    font-weight: 400;
+    font-style: normal;
+  }

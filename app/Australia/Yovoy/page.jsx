@@ -8,8 +8,10 @@ import RegionsForArgentina from '../../components/Zonas/RegionsForArgentina'
 import crearUsuario from '../../components/usuarios'
 import {handleConfirmationMulas} from '../../../Handlers/handleConfirmationMulas'
 import Select from 'react-select'
+import { useAudio } from '../../AudioContext';
 
 const Yovoy = () => { 
+    const { playAudio } = useAudio(); // Usa el contexto
     const router = useRouter();
     const [isMounted, setIsMounted] = useState(false);
     const [cookies, setCookie] = useCookies(['usuario']);
@@ -29,7 +31,6 @@ const Yovoy = () => {
     const [isLoading, setIsLoading] = useState(false);  
     const [loadingText, setLoadingText] = useState('Cargando...');   
     const recaptcha = useRef()
-    
     useEffect(() => {
         setIsMounted(true);                            
         const fetchOrCreateUser = async () => {
@@ -107,6 +108,7 @@ const Yovoy = () => {
     return (
             <>
                 <YoVoyComponent 
+                playAudio={playAudio}
                 handleInputChange={handleInputChange}
                 formData={formData}
                 renderCities={renderCities}

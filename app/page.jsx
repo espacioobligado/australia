@@ -7,7 +7,7 @@ export default function Home() {
   
   const router = useRouter()
   useEffect(() => {
-    router.push('/Australia');
+    router.push('/Australia/Lastcall');
   }, []); 
    
   return (

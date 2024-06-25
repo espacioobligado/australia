@@ -168,7 +168,7 @@ const SocketChat = (id) => {
             flexContainer.setAttribute('style', `
                 display: flex;
                 justify-content: flex-end;
-                text-align: left;
+                text-align: right;
             `);
             {/*alignItems: 'center'*/}
             const innerDiv = document.createElement('div');

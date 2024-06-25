@@ -12,7 +12,7 @@ const ArribosComponent = ({ displayArribos, toggleSortByArrival, toggleShowArriv
     return (
         <>
             {isMobile ? (
-                <div style={{ marginLeft: '20px', marginRight: '20px', marginBottom: '5px', minHeight: '100vh' }}>
+                <div style={{ marginLeft: '20px', marginRight: '20px', marginBottom: '5px'}}>
                     <div style={{marginBottom: '15px'}}>
                         {isMobile427 ? ( 
                         <>
@@ -42,7 +42,7 @@ const ArribosComponent = ({ displayArribos, toggleSortByArrival, toggleShowArriv
                                     <strong style={{ marginRight: '0.2em' }}>{displayArribo.region}, {displayArribo.zone}</strong>
                                     {displayArribo.formattedLlegada === 'Ya llego' ? 'llegó' : 'viene'}
                                 </p> 
-                                <ChatArribosAzul key={displayArribo.nombre} value={displayArribo.nombre}/>   
+                                <ChatArribosAzul key={displayArribo.usuario} value={displayArribo.usuario}/>   
                             </div>
                             <div>
                                 <p style={{ marginRight: '0.2em' }}>de <strong>
@@ -64,7 +64,7 @@ const ArribosComponent = ({ displayArribos, toggleSortByArrival, toggleShowArriv
                     ))}
                 </div>
                 ):(
-                <div style={{minHeight:'100vh' }} >
+                <div>
                     {/* <ToastContainer /> */}
                     <div style={{ marginLeft: '20px', marginRight: '20px', marginBottom: '5px'}} >
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom:'20px', marginTop:'15px'}}>
@@ -98,7 +98,7 @@ const ArribosComponent = ({ displayArribos, toggleSortByArrival, toggleShowArriv
                     {displayArribos.map((displayArribo, index) => (
                         <div key={`region1-${index}`} id={index} style={{marginLeft: '20px', marginBottom: '20px',display:'flex',color: '#555'}}>
                             <div  key={`region1-${index}`} style={{flex: '25%'}}>{displayArribo.region}, {displayArribo.zone} </div> 
-                            <div  key={`region2-${index}`} style={{flex: '25%'}}><ChatArribosAzul key={displayArribo.nombre} value={displayArribo.nombre}/></div> 
+                            <div  key={`region2-${index}`} style={{flex: '25%'}}><ChatArribosAzul key={displayArribo.usuario} value={displayArribo.usuario}/></div> 
                             {/* <div  key={`region3-${index}`} style={{flex: '25%'}}>{displayArribo.otherlocation ? displayArribo.otherlocation : `${displayArribo.municipio}, ${displayArribo.provincia}`} </div> */}
                             <div key={`region3-${index}`} style={{ flex: '35%' }}>
                             {/* {displayArribo.otherlocation ? displayArribo.otherlocation : (displayArribo.municipio === "" && displayArribo.provincia === "") ? displayArribo.salidade : `${displayArribo.municipio}, ${displayArribo.provincia}`} */}

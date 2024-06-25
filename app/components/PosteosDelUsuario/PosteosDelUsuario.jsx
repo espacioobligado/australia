@@ -194,7 +194,7 @@ const PosteosDelUsuario = ({userIdPublicador,   isMobile}) => {
                     posteosDelUsuarioLastCall.map((post, index) => (
                             <div key={post.id}>
                             {postSeleccionado === index ? (
-                              <div  style={{ marginBottom: '10px', marginRight:'10px',marginLeft:'10px', border: '1px solid #ccc', borderRadius: '5px', padding: '10px', width: isMobile?'30vh':'30vh', height:isMobile?'27vh':'22vh'}}>
+                              <div  style={{ marginBottom: '10px', marginRight:'10px',marginLeft:'10px', border: '1px solid #ccc', borderRadius: '5px', padding: '10px', width: isMobile?'50vh':'30vh', height:isMobile?'25vh':'22vh'}}>
                                 <div style={{ color: 'red', display: 'flex', justifyContent: 'flex-end' }}>
                                     <button onClick={() => handleXClick(post)}> X</button>
                                 </div>
@@ -240,7 +240,7 @@ const PosteosDelUsuario = ({userIdPublicador,   isMobile}) => {
                                 </div>
                             </div>
                             ) : (
-                                <div style={{ marginBottom: '10px', marginRight:'10px',marginLeft:'10px', border: '1px solid #ccc', borderRadius: '5px', padding: '10px', width: isMobile?'30vh':'30vh', height:isMobile?'27vh':'22vh'}}>
+                                <div style={{ marginBottom: '10px', marginRight:'10px',marginLeft:'10px', border: '1px solid #ccc', borderRadius: '5px', padding: '10px', width: isMobile?'50vh':'30vh', height:isMobile?'25vh':'22vh'}}>
                                     <div style={{ color: 'red', display: 'flex', justifyContent: 'flex-end' }}>
                                         <button onClick={() => handleXClick(post)}> X</button>
                                     </div>
@@ -273,12 +273,12 @@ const PosteosDelUsuario = ({userIdPublicador,   isMobile}) => {
                             posteosDelUsuarioArribos.map((post, index) => (
                                     <div key={post.id}>
                                     {/*  style={{backgroundColor:'lightgray'}} */}
-                                        <div style={{marginBottom: '10px',  alignItems: 'center',marginRight:'10px',marginLeft:'10px', border: '1px solid #ccc', borderRadius: '5px', padding: '10px 10px 15px',  width: isMobile?'40vh':'45vh'}}>
+                                        <div style={{marginBottom: '10px',  alignItems: 'center',marginRight:'10px',marginLeft:'10px', border: '1px solid #ccc', borderRadius: '5px', padding: '10px 10px 15px',  width: isMobile?'50vh':'30vh' }}>
                                         {/* height:isMobile?'15vh':'10vh' */}
                                             <div style={{ color: '#007bff',  display: 'flex', justifyContent: 'flex-end' }}>
                                                 <button onClick={() => handleXClickBlue(post)}> X</button>
                                             </div>
-                                            <div style={{ height: '5vh',textAlign:'center' }}>
+                                            <div style={{ height: '6vh',textAlign:'center' }}>
                                                 <strong>Vas a </strong>&nbsp; {post.region}, {post.zone} el {post.formattedLlegada}
                                             </div>
                                         </div>

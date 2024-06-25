@@ -39,30 +39,18 @@ const hostname = "localhost";
 const port =  3000;
 const app = next({ dev, hostname, port });
 const handler = app.getRequestHandler();
-
-
+ 
 app.prepare().then(() => {
   const httpServer = createServer((req, res) => {
     cookieParser()(req, res, () => {});
-    const url = req.url;
     let cookie =  req.cookies.usuario
-    handler(req, res);  
 
-    //     lastConnection(cookie,res);              
-    // };    
-  if (url === "/Australia"  ||url === "/Australia/Lastcall" || url === "/Australia/Arribos" || url === "/Australia/Yonecesito" || url === "/Australia/Yovoy") {
-    lastConnection(cookie, res);
-  }           
-  // if (url !== "/Australia" && !url.startsWith("/Australia/")) {
-  //   // Redirigir a la ruta "/Australia"
-  //   req.url = "/Australia";
-  //   handler(req, res);
-  // }                                
+    lastConnection(cookie,res);     
+    handler(req, res);  
 })                                     
 
 const lastConnection = async (cookie, res) => {
   const currentDate = new Date();
-
   if (!cookie) {
         try {
           let nuevoUsuario;
@@ -94,11 +82,10 @@ const lastConnection = async (cookie, res) => {
       } catch (error) {
           console.error('Error al asignar cookie:', error);
       }
-      } else {
+  } else {
         try{
         const userQuery = 'SELECT id FROM usuarios WHERE nombre = $1';
         const userResult = await conn.query(userQuery, [cookie]);
-
           if (userResult.rows.length === 0) {
               const insertQuery = 'INSERT INTO usuarios (nombre, lastConnection, timeCreated) VALUES ($1, $2, $3)';
               const insertValues = [cookie, currentDate, currentDate];
@@ -114,7 +101,7 @@ const lastConnection = async (cookie, res) => {
         catch (error){
           console.error('Error al asignar last connection:', error);
         }
-      }
+  }
 }
 
   const io = new Server(httpServer, {
