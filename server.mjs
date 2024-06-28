@@ -1,10 +1,12 @@
 import express from 'express';
 import { createServer } from 'http';
+// import { createServer as createHTTPSServer } from 'https';
 import next from 'next';
 import { Server } from 'socket.io';
 import pkg from 'pg';
 const { Pool } = pkg;
 import cookieParser from 'cookie-parser';
+// import fs from 'fs'; // Importar el módulo fs para leer los archivos del certificado
 import crearUsuario from './usuarios.mjs';
 import cors from 'cors';
 
@@ -58,6 +60,17 @@ app.prepare().then(() => {
     return handle(req, res);
   });
 
+    // Lee los archivos del certificado SSL/TLS
+    // const httpsOptions = {
+    //   key: fs.readFileSync('/path/to/your/ssl.key'), // Reemplaza con la ruta a tu archivo .key
+    //   cert: fs.readFileSync('/path/to/your/ssl.cert') // Reemplaza con la ruta a tu archivo .cert
+    // };
+
+    // const httpServer = createHTTPSServer(httpsOptions, expressApp);
+    // const io = new Server(httpServer, {
+    //   connectionStateRecovery: {},
+    // });
+    
   const httpServer = createServer(expressApp);
   const io = new Server(httpServer, {
     connectionStateRecovery: {},

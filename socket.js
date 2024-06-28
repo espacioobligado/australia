@@ -21,7 +21,7 @@ const res = await crearUsuario();
 
 
 // const URL = "http://localhost:3000";
-const URL = "https://quienviene.vercel.app";
+const URL = "https://quienviene.vercel.app:3000";
 
 export const socket = io(URL, { autoConnect: false });
 
