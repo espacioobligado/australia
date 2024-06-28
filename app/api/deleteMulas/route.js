@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import conn from '../../../lib/db';
 import moment from 'moment-timezone';
+import { revalidatePath } from 'next/cache';
 
 export async function DELETE(request) {
     const res = await request.json();
@@ -12,7 +13,7 @@ export async function DELETE(request) {
            const query = 'DELETE FROM public.mulas WHERE "id" = $1';
             
             const result = await conn.query(query, [id]);
-
+            await revalidatePath('/api/getarribos');
             return result.rows[0];
         } catch (error) {
             console.error('Error durante la inserción 2:', error);

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import conn from '../../../lib/db';
 import moment from 'moment-timezone';
+import { revalidatePath } from 'next/cache';
 
 export async function PUT(request) {
     const res = await request.json();
@@ -17,7 +18,7 @@ export async function PUT(request) {
             // console.log(values)
 
             const result = await conn.query(query, values);
-         
+            await revalidatePath('/api/getservicios');
             console.log('Inserción exitosa servicio.');
             return result.rows[0];
         } catch (error) {
