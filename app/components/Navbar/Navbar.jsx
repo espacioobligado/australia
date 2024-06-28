@@ -1,7 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import link from './er.svg';
+// import link from './er.svg';
+import link from './er7777.svg';
 import { useRouter } from 'next/navigation';
 import { mobile427 } from '../../../Helpers/mobile427';
 import { useState, useEffect } from "react";
@@ -9,7 +10,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import LoginOrRegister from '../LoginOrRegister/LoginOrRegister';
-import { useCookies } from 'react-cookie';
 import styles from './Navbar.module.css';
 import { useSearchBar } from '../../SearchBarContext';
 import Burger from '../Burger/Burger'
@@ -21,8 +21,6 @@ const Navbar = () => {
   const [isMounted, setIsMounted] = useState(false);
   const [activeLink, setActiveLink] = useState("");
   const [showLoginOrRegister, setShowLoginOrRegister] = useState(false);
-  const [cookies, setCookie] = useCookies(['usuario']);
-  const [usuario, setUsuario] = useState('');
   const { handleUpdateDisplayServicios, handleUpdateDisplayArribos  } = useSearchBar();
 
   useEffect(() => {
@@ -43,23 +41,6 @@ const Navbar = () => {
   const handleCloseModal = () => {
     setShowLoginOrRegister(false);
   };
-
-  useEffect(() => {
-    const fetchOrCreateUser = async () => {
-      try {
-        if (!cookies.usuario) {
-          const nuevoUsuario = await crearUsuario();
-          setUsuario(nuevoUsuario);
-          setCookie('usuario', nuevoUsuario, { path: '/' });
-        } else {
-          setUsuario(cookies.usuario);
-        }
-      } catch (error) {
-        console.error('Error al obtener o crear el usuario:', error);
-      }
-    };
-    fetchOrCreateUser();
-  }, [cookies.usuario, setCookie]);
 
   if (!isMounted) {
     return null;
@@ -181,7 +162,6 @@ const Navbar = () => {
             <div className={styles.avionDiv}>
               <div className={styles.imageContainer}>
                 <Image className={styles.back} src={link} alt="Imagen" width={500} height={300} />
-                <div className={styles.lineasAnimadas} ></div>
               </div>
             </div>
         </div>

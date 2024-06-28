@@ -26,6 +26,7 @@ const ChatsDisponibles = ({isMobile, userIdPublicador}) => {
                     const mensajesDeLosChats = await getMensajesDe(chatIdActual);    
                     setChatSeleccionado(mensajesDeLosChats);
                     setChatId([chatIdActual,mensajesDeLosChats[0].remitente,userIdPublicador ])
+                    console.log('CHATID Disponible actual', chatIdActual)
                     setChatIdAnterior(chatIdActual);
                     scrollToBottom();
                 }
@@ -39,6 +40,8 @@ const ChatsDisponibles = ({isMobile, userIdPublicador}) => {
         
         mensajesChat.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
         setChatSeleccionado(mensajesChat);
+        console.log('clickeo en chat')
+        // socket.connect();
     };                            
 
     useEffect(() => {

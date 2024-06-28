@@ -1,6 +1,7 @@
 import { toast } from 'react-toastify';
 
-export const scrollToElementBlue = (elements, lastValue, usuario ) => {
+// , usuario
+export const scrollToElementBlue = (elements, lastValue ) => {
 
     const scrollToDiv = (id) => {
                 const element = document.getElementById(`${id}`);
@@ -12,16 +13,16 @@ export const scrollToElementBlue = (elements, lastValue, usuario ) => {
                         element.classList.remove('blinkBlue');  
                     }, 5000);
                 
-                    toast.info(`Tu usuario es ${usuario} y creaste esta publicación!`, {
-                        position: "top-center",
-                        autoClose: false,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                        style:{marginTop:'5px'}
-                    });
+                    // toast.info(`Tu usuario es ${usuario} y creaste esta publicación!`, {
+                    //     position: "top-center",
+                    //     autoClose: false,
+                    //     hideProgressBar: false,
+                    //     closeOnClick: true,
+                    //     draggable: true,
+                    //     progress: undefined,
+                    //     theme: "light",
+                    //     style:{marginTop:'5px'}
+                    // });
                 }
     };
 

@@ -5,7 +5,7 @@ var añoActual = fechaActual.getFullYear();
 
 const traeArribos = async () => {
     try {
-        const res = await fetch('http://localhost:3000/api/getarribos', { cache: 'no-store' });
+        const res = await fetch('/api/getarribos', { cache: 'no-store' });
         const retorno = await res.json(); 
         return retorno;
     } catch (error) {
@@ -16,7 +16,7 @@ const traeArribos = async () => {
 
 const getusuarios = async () => {
     try {
-        const res = await fetch('http://localhost:3000/api/getusuarios', { cache: 'no-store' });
+        const res = await fetch('/api/getusuarios', { cache: 'no-store' });
         const retorno = await res.json();   
         return retorno;
     } catch (error) {

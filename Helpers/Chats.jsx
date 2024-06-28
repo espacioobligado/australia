@@ -1,5 +1,5 @@
 export const getMensajesDe = async (chat_id) => {
-  const res = await fetch('http://localhost:3000/api/getmensajes', { cache: 'no-store' });
+  const res = await fetch('/api/getmensajes', { cache: 'no-store' });
   const text = await res.text();
   const retorno = JSON.parse(text);   
   const chatObjs = retorno.filter(mensaje => mensaje.chat_id === chat_id);
@@ -15,7 +15,7 @@ export const getMensajesDe = async (chat_id) => {
 } 
 
 export const getMensajes = async (chats_ids) => {
-  const res = await fetch('http://localhost:3000/api/getmensajes', { cache: 'no-store' });
+  const res = await fetch('/api/getmensajes', { cache: 'no-store' });
   const text = await res.text();
   const retorno = JSON.parse(text);   
   const chatObjs = retorno.filter(mensaje => chats_ids.includes(mensaje.chat_id));
@@ -31,7 +31,7 @@ export const getMensajes = async (chats_ids) => {
 }
  
 export const getUsuariosRemitentes = async (idsRemitentes) => {
-    const res = await fetch('http://localhost:3000/api/getusuarios');
+    const res = await fetch('/api/getusuarios');
     const text = await res.text();
     const retorno = JSON.parse(text);  
     if (!idsRemitentes || !idsRemitentes.length) {
@@ -47,7 +47,7 @@ export const getUsuariosRemitentes = async (idsRemitentes) => {
 let arrayDeobjeto2
 export const getUsuariosIdDelChat = async (remitente,publicacionDeUsuario) => {
     try {
-      const res = await fetch('http://localhost:3000/api/getusuarios');
+      const res = await fetch('/api/getusuarios');
       const text = await res.text();
       const retorno = JSON.parse(text);   
       arrayDeobjeto2 = retorno
@@ -65,7 +65,7 @@ export const getUsuariosIdDelChat = async (remitente,publicacionDeUsuario) => {
 }
 
 export const getUsuarioId = async (nombre) => {
-    const res = await fetch('http://localhost:3000/api/getusuarios');
+    const res = await fetch('/api/getusuarios');
     const text = await res.text();
     const retorno = JSON.parse(text);   
     try{
@@ -77,15 +77,16 @@ export const getUsuarioId = async (nombre) => {
 }
 
 export const getChatsFrom = async (usuarioId) => {
-  const res = await fetch('http://localhost:3000/api/getchat', { cache: 'no-store' });
+  const res = await fetch('/api/getchat', { cache: 'no-store' });
   const text = await res.text();
   const retorno = JSON.parse(text); 
   const chatsFromUser = retorno.filter(chats => chats.publicaciondeusuario == usuarioId);
   return chatsFromUser;  
 }
 
+//si no agarra ninguno, crea su primer chat id
 export const getChatsFromUsers = async (id1,id2) => {
-  const res = await fetch('http://localhost:3000/api/getchat', { cache: 'no-store' });
+  const res = await fetch('/api/getchat', { cache: 'no-store' });
   const text = await res.text();
   const retorno = JSON.parse(text);  
   const chatsFromUser = retorno.filter(chats => chats.publicaciondeusuario == id1 && chats.remitente == id2 );
@@ -93,12 +94,31 @@ export const getChatsFromUsers = async (id1,id2) => {
     return chatsFromUser[0].id;
   }
   else {
-    return 'b'
+    const nuevoChat = {
+      remitente: id2,
+      publicaciondeusuario: id1,
+      activo: "true",
+      timeCreated: new Date().toISOString()  // Puedes ajustar cómo se crea la fecha según tus necesidades
+    };
+    try {
+     const response =  await fetch('/api/postchat', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+            },
+          body: JSON.stringify({ nuevoChat })
+      });
+      const data = await response.json(); 
+      console.log('ID del chat creado:', data.id);
+      return data.id; 
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
 
 export const getUsuariosIds = async (remitente,publicacionDeUsuario) => {
-  const res = await fetch('http://localhost:3000/api/getusuarios', { cache: 'no-store' });
+  const res = await fetch('/api/getusuarios', { cache: 'no-store' });
   const text = await res.text();
   const retorno = JSON.parse(text);  
   const usuariosPro = [] 
@@ -116,7 +136,7 @@ retorno.forEach(usuario => {
 };
 
 export const getLastCallFromUsers = async (id) => {
-  const res = await fetch('http://localhost:3000/api/getservicios', { cache: 'no-store' });
+  const res = await fetch('/api/getservicios', { cache: 'no-store' });
   const text = await res.text();
   const retorno = JSON.parse(text);  
   const postsFromUser = retorno.filter(posteo => posteo.usuario == id);
@@ -124,7 +144,7 @@ export const getLastCallFromUsers = async (id) => {
 }
 
 export const getArribosFromUsers = async (id) => {
-  const res = await fetch('http://localhost:3000/api/getarribos', { cache: 'no-store' });
+  const res = await fetch('/api/getarribos', { cache: 'no-store' });
   const text = await res.text();
   const retorno = JSON.parse(text);  
   const postsFromUser = retorno.filter(posteo => posteo.usuario == id);

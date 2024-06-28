@@ -30,8 +30,8 @@ const formatLlegada = (llegada) => {
 export const searchBar = async (query) => {
   try {
     // Fetch para obtener datos de servicios y arribos
-    const res = await fetch('http://localhost:3000/api/searchBar', { cache: 'no-store' });
-    const resUsuarios = await fetch('http://localhost:3000/api/getusuarios', { cache: 'no-store' });
+    const res = await fetch('/api/searchBar', { cache: 'no-store' });
+    const resUsuarios = await fetch('/api/getusuarios', { cache: 'no-store' });
     // Parsear la respuesta a JSON
     const data = await res.json();
     const usuarios = await resUsuarios.json(); // Obtener datos de usuarios

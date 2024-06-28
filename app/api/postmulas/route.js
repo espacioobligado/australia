@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import conn from '../../../lib/db'
 import moment from 'moment-timezone' 
+import { revalidatePath } from 'next/cache';
 
 export async function POST(request){
     const res = await request.json()
@@ -34,6 +35,7 @@ export async function POST(request){
           
           console.log('insertMulasValues',insertMulasValues);
           console.log('Inserción exitosa mulas.');
+          await revalidatePath('/api/getarribos');
           //return res.rows[0];
       } catch (error) {
           console.error('Error durante la inserción333:', error);

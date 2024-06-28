@@ -17,14 +17,7 @@ const ChatId = (id) => {
     useEffect(() => {
         const fetchOrCreateUser = async () => {
             try {
-                if (!cookies.usuario) {
-                    const nuevoUsuario = await crearUsuario();
-                    setUsuario(nuevoUsuario);
-                    setCookie('usuario', nuevoUsuario, { path: '/' });
-                }
-                else {
-                    setUsuario(cookies.usuario);
-                }
+                setUsuario(cookies.usuario);
             } catch (error) {
                 console.error('Error al obtener o crear el usuario:', error);
             }

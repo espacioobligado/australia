@@ -131,13 +131,26 @@
 .avionDiv {
   display: inline-block;
   max-width: 100%;
-  height: auto;
+  height: 25vh;
   overflow: visible;
   position: relative;
   display: inline-block;
 }
  
 
+.avionDiv {
+  position: relative;
+  animation: movePlane 10s  infinite alternate;
+}
+
+@keyframes movePlane {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
 
 
 /* clouds */

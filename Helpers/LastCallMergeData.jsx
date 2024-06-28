@@ -1,7 +1,9 @@
 const getservicios = async () => {
     try {
-      const res = await fetch('http://localhost:3000/api/getservicios', { cache: 'no-store' });
+      const res = await fetch('/api/getservicios', { cache: 'no-store' });
       const text = await res.text();
+      console.log('res',res)
+      console.log('text',text)
       const retorno = JSON.parse(text);    
       return retorno;
     } catch (error) {
@@ -12,7 +14,7 @@ const getservicios = async () => {
 
 const getusuarios = async () => {
     try {
-      const res = await fetch('http://localhost:3000/api/getusuarios', { cache: 'no-store' });
+      const res = await fetch('/api/getusuarios', { cache: 'no-store' });
       const text = await res.text();
       const retorno = JSON.parse(text);   
        return retorno;

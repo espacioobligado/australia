@@ -1,10 +1,10 @@
 'use client'
 import { useEffect, useState } from 'react';
-import { useCookies } from 'react-cookie';
+// import { useCookies } from 'react-cookie';
 import { useSearchParams } from 'next/navigation';
 import { mergeData } from '../../../Helpers/LastCallMergeData';
 import { scrollToElementRed } from '../../../Helpers/scrollToElementRed';
-import { fetchOrCreateUser } from '../../../Helpers/fetchOrCreateUser';
+// import { fetchOrCreateUser } from '../../../Helpers/fetchOrCreateUser';
 import Dots from '../Dots/Dots';
 // import SearchBarServicios from '../../components/SearchBarServicios/SearchBarServicios';
 import LastCallComponent from '../LastCallComponent/LastCallComponent';
@@ -13,10 +13,10 @@ import styles from './LastCallLogicComponent.module.css';
 
 const LastcallLogicComponent = () => {
   const [isMounted, setIsMounted] = useState(false);
-  const [cookies, setCookie] = useCookies(['usuario']);
+  // const [cookies, setCookie] = useCookies(['usuario']);
   const searchParams = useSearchParams();
   const [lastValue, setLastValue] = useState();
-  const [usuario, setUsuario] = useState('');
+  // const [usuario, setUsuario] = useState('');
   const [servicios, setServicios] = useState([]);
   // const [displayServicios, setDisplayServicios] = useState([]);
   const { displayServicios, handleUpdateDisplayServicios } = useSearchBar(); // Usa el contexto
@@ -35,9 +35,9 @@ const LastcallLogicComponent = () => {
     setIsMounted(true);
   }, []);
 
-  useEffect(() => {
-    fetchOrCreateUser(cookies, setUsuario, setCookie);
-  }, [cookies.usuario, setCookie]);
+  // useEffect(() => {
+  //   fetchOrCreateUser(cookies, setUsuario, setCookie);
+  // }, [cookies.usuario, setCookie]);
 
   useEffect(() => {
     const fetchGet = async () => {
@@ -56,7 +56,8 @@ const LastcallLogicComponent = () => {
   // };
 
   useEffect(() => {
-    scrollToElementRed(servicios, lastValue, usuario);
+    // ,usuario
+    scrollToElementRed(servicios, lastValue);
   }, [servicios, lastValue]);
 
   if (!isMounted) {

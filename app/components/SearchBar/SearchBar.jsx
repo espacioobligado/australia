@@ -32,6 +32,10 @@ const SearchBar = ( {onUpdateDisplayServicios,onUpdateDisplayArribos}) => {
     fetchData(); // Llama a fetchData cuando query cambie
   }, [query]);
 
+  const a = () => {
+    setQuery('')
+  }
+
   return (
     <div className={styles.searchContainer}>
       <div className={styles.searchBox}>
@@ -42,7 +46,7 @@ const SearchBar = ( {onUpdateDisplayServicios,onUpdateDisplayArribos}) => {
           placeholder="Blue label..."
           className={styles.searchInput}
         />
-        <FontAwesomeIcon icon={faSearch} className={styles.searchIcon} />
+        <FontAwesomeIcon onClick={() => a()} icon={faSearch} className={styles.searchIcon} />
       </div>
     </div>
   );

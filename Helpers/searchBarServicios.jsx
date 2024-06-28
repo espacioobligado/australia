@@ -1,8 +1,8 @@
 'use client'
 export const searchBarServicios = async (query) => {
   try {
-    const res = await fetch('http://localhost:3000/api/searchBarServicios', { cache: 'no-store' });
-    const resUsuarios = await fetch('http://localhost:3000/api/getusuarios', { cache: 'no-store' });
+    const res = await fetch('/api/searchBarServicios', { cache: 'no-store' });
+    const resUsuarios = await fetch('/api/getusuarios', { cache: 'no-store' });
 
     const data = await res.json();
     const usuarios = await resUsuarios.json(); // Obtener datos de usuarios

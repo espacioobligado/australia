@@ -1,14 +1,14 @@
 "use client"
 import ArribosComponent from '../../components/ArribosComponent/ArribosComponent'
 import { useEffect, useState } from "react";
-import { useCookies } from 'react-cookie';
+// import { useCookies } from 'react-cookie';
 import { useSearchParams  } from 'next/navigation';
 import 'react-toastify/dist/ReactToastify.css';
 import {mergeData} from '../../../Helpers/arribosMergeData'
 import {getCurrentDay} from '../../../Helpers/getCurrentDay'
 import {scrollToElementBlue} from '../../../Helpers/scrollToElementBlue';
 import Dots from '../Dots/Dots';
-import crearUsuario from '../../components/usuarios';
+// import crearUsuario from '../../components/usuarios';
 import { useSearchBar } from '../../SearchBarContext'; // Importa el contexto
 import styles from './ArribosLogicComponent.module.css';
 
@@ -18,8 +18,8 @@ const ArribosLogicComponent = () => {
   
     const searchParams = useSearchParams();
     const [lastValue, setLastValue] = useState();
-    const [cookies, setCookie] = useCookies(['usuario']);
-    const [usuario, setUsuario] = useState('');
+    // const [cookies, setCookie] = useCookies(['usuario']);
+    // const [usuario, setUsuario] = useState('');
     const [isMounted, setIsMounted] = useState(false);
     const [showArrivedOnly, setShowArrivedOnly] = useState(false);
     const [sortByArrival, setSortByArrival] = useState(false);
@@ -45,6 +45,7 @@ const ArribosLogicComponent = () => {
         const fetchMensajes = async () => {
             try {
                 const mergedData = await mergeData();
+                console.log('---------------------------------OPA---------------------------------')
                 setArribos(mergedData);
                 console.log(mergedData)
                 setIsLoading(false);
@@ -56,24 +57,24 @@ const ArribosLogicComponent = () => {
         fetchMensajes();
     }, []);
     
-    useEffect(() => {
-        // fetchOrCreateUser(cookies, setUsuario,setCookie);
-        const fetchOrCreateUser = async () => {
-            try {
-                if (!cookies.usuario) {
-                    const nuevoUsuario = await crearUsuario();
-                    setUsuario(nuevoUsuario);
-                    setCookie('usuario', nuevoUsuario, { path: '/' });
-                }
-                else {
-                    setUsuario(cookies.usuario);
-                }
-            } catch (error) {
-                console.error('Error al obtener o crear el usuario:', error);
-            }
-        };
-        fetchOrCreateUser()
-    }, [cookies.usuario, setCookie]);
+    // useEffect(() => {
+    //     // fetchOrCreateUser(cookies, setUsuario,setCookie);
+    //     const fetchOrCreateUser = async () => {
+    //         try {
+    //             if (!cookies.usuario) {
+    //                 const nuevoUsuario = await crearUsuario();
+    //                 setUsuario(nuevoUsuario);
+    //                 setCookie('usuario', nuevoUsuario, { path: '/' });
+    //             }
+    //             else {
+    //                 setUsuario(cookies.usuario);
+    //             }
+    //         } catch (error) {
+    //             console.error('Error al obtener o crear el usuario:', error);
+    //         }
+    //     };
+    //     fetchOrCreateUser()
+    // }, [cookies.usuario, setCookie]);
     
 
     const toggleShowArrivedOnly = () => {
@@ -107,8 +108,10 @@ const ArribosLogicComponent = () => {
     }, [showArrivedOnly, sortByArrival, arribos]);
 
     useEffect(() => {
-        scrollToElementBlue(arribos, lastValue, usuario);
-    }, [arribos, lastValue, usuario]);
+        // usuario
+        scrollToElementBlue(arribos, lastValue, );
+    }, [arribos, lastValue ]);
+    // ,usuario
 
 
     if (!isMounted) {

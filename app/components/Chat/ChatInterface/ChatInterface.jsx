@@ -6,7 +6,7 @@ import { socket } from '../../socket/socket';
 import {getMensajesDe,getChatsFromUsers,getUsuarioId} from '../../../../Helpers/Chats'
 import {llamar} from '../../../../Helpers/lastConnection'
 
-socket.connect();
+// socket.connect();
 
 const ChatInterface = (id) => {
     const [cookies, setCookie] = useCookies(['usuario']);
@@ -24,16 +24,16 @@ const ChatInterface = (id) => {
             messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
         }
     };
-
+          //crea el chat pero hay que recargar para que aparezca y funcione 
     let usuario34 = id.value.params.usuario;                       
     const publicacionDeUsuari  = usuario34.replace(/%20/g, ' ');  
     const publicacionDeUsuario = decodeURIComponent(publicacionDeUsuari);
  
-    useEffect(() => {
-        socket.on('chat_id', chat_id => {
-        setCheuqueo(false)
-        })
-    },[])//socket chat_id
+    // useEffect(() => {
+    //     socket.on('chat_id', chat_id => {
+    //     setCheuqueo(false)
+    //     })
+    // },[])//socket chat_id
 
     useEffect(() => {
       const lastConnection = async () => {
@@ -47,11 +47,12 @@ const ChatInterface = (id) => {
         const userId1publicacionDeUsuario = await getUsuarioId(publicacionDeUsuario) 
         const userId2 = await getUsuarioId(cookies.usuario) 
 
-        socket.emit('usuariosEnChat', `${userId2}]${userId1publicacionDeUsuario}`);
+        // socket.emit('usuariosEnChat', `${userId2}]${userId1publicacionDeUsuario}`);
           
         let chatId = await getChatsFromUsers(userId1publicacionDeUsuario,userId2)  
         
         setChatId([chatId,userId1publicacionDeUsuario,userId2])
+        console.log('0HOPOLA',chatId)
         const mensajesDelChat = await getMensajesDe(chatId)
         if(mensajesDelChat.length == 0){
           setMensajes([{id:'a',contenido:'🔒 Los mensajes estan cifrados. Nadie fuera de este chat puede leerlos.'}]);
@@ -61,8 +62,9 @@ const ChatInterface = (id) => {
       }catch{
       };   
       }
+      if (cheuqueo) {
       fetchUserId();
-      
+      }
     }, [cheuqueo]);//crear los chats | lastConnection
 
     useEffect(() => {
