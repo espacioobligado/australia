@@ -137,10 +137,9 @@
   display: inline-block;
 }
  
-
 .avionDiv {
   position: relative;
-  animation: movePlane 10s  infinite alternate;
+  animation: movePlane 10s infinite alternate;
 }
 
 @keyframes movePlane {
