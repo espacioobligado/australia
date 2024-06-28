@@ -34,7 +34,7 @@ const UpdatePostLastCall = (usuario) => {
     } else {
     return (
         <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column',alignItems: 'center',  overflowX: 'hidden' }}> 
-        <Clock/>
+            <Clock/>
             <PosteosDelUsuario
             userIdPublicador={userIdPublicador}
             // usuario={usuario.value}
