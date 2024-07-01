@@ -65,6 +65,11 @@ app.prepare().then(() => {
     //   key: fs.readFileSync('/path/to/your/ssl.key'), // Reemplaza con la ruta a tu archivo .key
     //   cert: fs.readFileSync('/path/to/your/ssl.cert') // Reemplaza con la ruta a tu archivo .cert
     // };
+    var httpsOptions = {
+      key: fs.readFileSync('ssl.key'),
+      cert: fs.readFileSync('ssl.crt'),
+      ca: [fs.readFileSync('root.crt')]
+  };
 
     const httpsServer = createHTTPSServer(httpsOptions, expressApp);
     const io = new Server(httpsServer, {
