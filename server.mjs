@@ -1,6 +1,6 @@
 import express from 'express';
-// import { createServer } from 'http';
-import { createServer as createHTTPSServer } from 'https';
+import { createServer } from 'http';
+// import { createServer as createHTTPSServer } from 'https';
 import next from 'next';
 import { Server } from 'socket.io';
 import pkg from 'pg';
@@ -65,21 +65,21 @@ app.prepare().then(() => {
     //   key: fs.readFileSync('/path/to/your/ssl.key'), // Reemplaza con la ruta a tu archivo .key
     //   cert: fs.readFileSync('/path/to/your/ssl.cert') // Reemplaza con la ruta a tu archivo .cert
     // };
-    var httpsOptions = {
-      key: fs.readFileSync('ssl.key'),
-      cert: fs.readFileSync('ssl.crt'),
-      ca: [fs.readFileSync('root.crt')]
-  };
+  //   var httpsOptions = {
+  //     key: fs.readFileSync('ssl.key'),
+  //     cert: fs.readFileSync('ssl.crt'),
+  //     ca: [fs.readFileSync('root.crt')]
+  // };
 
-    const httpsServer = createHTTPSServer(httpsOptions, expressApp);
-    const io = new Server(httpsServer, {
-      connectionStateRecovery: {},
-    });
+  //   const httpsServer = createHTTPSServer(httpsOptions, expressApp);
+  //   const io = new Server(httpsServer, {
+  //     connectionStateRecovery: {},
+  //   });
     
-  // const httpServer = createServer(expressApp);
-  // const io = new Server(httpServer, {
-  //   connectionStateRecovery: {},
-  // });
+  const httpServer = createServer(expressApp);
+  const io = new Server(httpServer, {
+    connectionStateRecovery: {},
+  });
 
   let chat_id;
   io.on('connection', async (socket) => {
@@ -157,7 +157,7 @@ app.prepare().then(() => {
     }
   }
 
-  httpsServer.once('error', (err) => {
+  httpServer.once('error', (err) => {
     console.error(err);
   });
 
@@ -172,7 +172,7 @@ app.prepare().then(() => {
     await updateChatStatus(false, chat_id);
   });
 
-  httpsServer.listen(port, () => {
+  httpServer.listen(port, () => {
     console.log(`> Ready on http://${hostname}:${port}`);
   });
 });
