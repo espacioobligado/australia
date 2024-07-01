@@ -16,7 +16,7 @@ const SearchBar = ( {onUpdateDisplayServicios,onUpdateDisplayArribos}) => {
         if (query.trim() !== '') {
           const response = await searchBar(query); // Llama al helper searchBar con el query
           setResults(response); // Actualiza los resultados con la respuesta obtenida
-          console.log(response)
+          // console.log(response)
           onUpdateDisplayServicios(response.servicios)
           onUpdateDisplayArribos(response.arribos)
           setQuery('')

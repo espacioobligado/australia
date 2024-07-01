@@ -55,7 +55,7 @@ const PosteosDelUsuario = ({userIdPublicador,   isMobile}) => {
         });  
         const postServicio2 = async (post) => {
             // generatedId
-            console.log(post)
+            // console.log(post)
             try {
                 const response = await fetch('/api/postServiciosEliminados', {
                     method: 'POST',
@@ -65,7 +65,7 @@ const PosteosDelUsuario = ({userIdPublicador,   isMobile}) => {
                     body: JSON.stringify({ post })
                 });
                 if (response.ok) {
-                    console.log('ok')
+                    // console.log('ok')
                     const response2 = await fetch('/api/deleteServicio', {
                         method: 'DELETE',
                         headers: {
@@ -114,7 +114,7 @@ const PosteosDelUsuario = ({userIdPublicador,   isMobile}) => {
                     body: JSON.stringify({ post })
                 });
                 if (response.ok) {
-                    console.log('ok')
+                    // console.log('ok')
                     const response2 = await fetch('/api/deleteMulas', {
                         method: 'DELETE',
                         headers: {

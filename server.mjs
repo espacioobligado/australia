@@ -1,12 +1,12 @@
 import express from 'express';
-import { createServer } from 'http';
-// import { createServer as createHTTPSServer } from 'https';
+// import { createServer } from 'http';
+import { createServer as createHTTPSServer } from 'https';
 import next from 'next';
 import { Server } from 'socket.io';
 import pkg from 'pg';
 const { Pool } = pkg;
 import cookieParser from 'cookie-parser';
-// import fs from 'fs'; // Importar el módulo fs para leer los archivos del certificado
+import fs from 'fs'; // Importar el módulo fs para leer los archivos del certificado
 import crearUsuario from './usuarios.mjs';
 import cors from 'cors';
 
@@ -66,15 +66,15 @@ app.prepare().then(() => {
     //   cert: fs.readFileSync('/path/to/your/ssl.cert') // Reemplaza con la ruta a tu archivo .cert
     // };
 
-    // const httpServer = createHTTPSServer(httpsOptions, expressApp);
-    // const io = new Server(httpServer, {
-    //   connectionStateRecovery: {},
-    // });
+    const httpsServer = createHTTPSServer(httpsOptions, expressApp);
+    const io = new Server(httpsServer, {
+      connectionStateRecovery: {},
+    });
     
-  const httpServer = createServer(expressApp);
-  const io = new Server(httpServer, {
-    connectionStateRecovery: {},
-  });
+  // const httpServer = createServer(expressApp);
+  // const io = new Server(httpServer, {
+  //   connectionStateRecovery: {},
+  // });
 
   let chat_id;
   io.on('connection', async (socket) => {

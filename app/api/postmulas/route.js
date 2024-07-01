@@ -35,7 +35,7 @@ export async function POST(request){
           
           console.log('insertMulasValues',insertMulasValues);
           console.log('Inserción exitosa mulas.');
-          await revalidatePath('/api/getarribos');
+          revalidatePath('/api/getarribos');
           //return res.rows[0];
       } catch (error) {
           console.error('Error durante la inserción333:', error);

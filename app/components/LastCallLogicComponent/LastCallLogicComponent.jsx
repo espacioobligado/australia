@@ -43,7 +43,7 @@ const LastcallLogicComponent = () => {
     const fetchGet = async () => {
       const mergedData = await mergeData();
       setServicios(mergedData);
-      console.log(mergedData)
+      // console.log(mergedData)
       // setDisplayServicios(mergedData); // Inicializa displayServicios con los datos originales
       handleUpdateDisplayServicios(mergedData); // Inicializa displayServicios con los datos originales
       setIsLoading(false);

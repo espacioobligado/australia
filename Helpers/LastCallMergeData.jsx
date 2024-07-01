@@ -2,12 +2,12 @@ const getservicios = async () => {
     try {
       const res = await fetch('/api/getservicios', { cache: 'no-store' });
       const text = await res.text();
-      console.log('res',res)
-      console.log('text',text)
+      // console.log('res',res)
+      // console.log('text',text)
       const retorno = JSON.parse(text);    
       return retorno;
     } catch (error) {
-      console.error('Error al realizar la solicitud:', error);
+      console.error('Error al realizar la solicitud getservicios:', error);
       throw error;  
     }
   };
@@ -19,7 +19,7 @@ const getusuarios = async () => {
       const retorno = JSON.parse(text);   
        return retorno;
     } catch (error) {
-      console.error('Error al realizar la solicitud:', error);
+      console.error('Error al realizar la solicitud getusuarios:', error);
       throw error;  
     }
   };

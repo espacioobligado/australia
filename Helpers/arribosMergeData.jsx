@@ -9,7 +9,7 @@ const traeArribos = async () => {
         const retorno = await res.json(); 
         return retorno;
     } catch (error) {
-        console.error('Error al realizar la solicitud:', error);
+        console.error('Error al realizar la solicitud traeArribos:', error);
         throw error;  
     }
 };
@@ -72,7 +72,7 @@ export const mergeData = async () => {
                 delete obj.timeposteo;  
             }
         });
-        console.log(mergedDataArray)
+        // console.log(mergedDataArray)
         return mergedDataArray;
     } catch (error) {
         console.error('Error merging data:', error);

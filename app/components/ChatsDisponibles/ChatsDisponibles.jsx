@@ -40,7 +40,7 @@ const ChatsDisponibles = ({isMobile, userIdPublicador}) => {
         
         mensajesChat.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
         setChatSeleccionado(mensajesChat);
-        console.log('clickeo en chat')
+        // console.log('clickeo en chat')
         // socket.connect();
     };                            
 
@@ -79,7 +79,7 @@ const ChatsDisponibles = ({isMobile, userIdPublicador}) => {
             const chatCreation = await Promise.all(chatCreationPromises);
             const filteredChatCreation = chatCreation.filter(chat => chat !== null);
             setChatsDisponibles(filteredChatCreation)
-            console.log(1,filteredChatCreation)
+            // console.log(1,filteredChatCreation)
 
             // const checkiarChatsNuevos = async() => {
             //     chatsIntervalCheckiando = await getChatsFrom(userIdPublicador)  
@@ -137,7 +137,7 @@ const ChatsDisponibles = ({isMobile, userIdPublicador}) => {
             const chatCreation = await Promise.all(chatCreationPromises);
             const filteredChatCreation = chatCreation.filter(chat => chat !== null);
             setChatsDisponibles(filteredChatCreation)
-            console.log(1,filteredChatCreation)
+            // console.log(1,filteredChatCreation)
 
             // const checkiarChatsNuevos = async() => {
             //     chatsIntervalCheckiando = await getChatsFrom(userIdPublicador)  

@@ -48,7 +48,7 @@ export async function POST(request) {
             const result = await conn.query(query, values);
          
             console.log('Inserción exitosa servicio.');
-            await revalidatePath('/api/getservicios');
+            revalidatePath('/api/getservicios');
             return result.rows[0];
         } catch (error) {
             console.error('Error durante la inserción 2:', error);

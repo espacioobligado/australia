@@ -52,7 +52,7 @@ const ChatInterface = (id) => {
         let chatId = await getChatsFromUsers(userId1publicacionDeUsuario,userId2)  
         
         setChatId([chatId,userId1publicacionDeUsuario,userId2])
-        console.log('0HOPOLA',chatId)
+        // console.log('0HOPOLA',chatId)
         const mensajesDelChat = await getMensajesDe(chatId)
         if(mensajesDelChat.length == 0){
           setMensajes([{id:'a',contenido:'🔒 Los mensajes estan cifrados. Nadie fuera de este chat puede leerlos.'}]);

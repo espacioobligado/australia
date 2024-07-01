@@ -45,9 +45,9 @@ const ArribosLogicComponent = () => {
         const fetchMensajes = async () => {
             try {
                 const mergedData = await mergeData();
-                console.log('---------------------------------OPA---------------------------------')
+                // console.log('---------------------------------OPA---------------------------------')
                 setArribos(mergedData);
-                console.log(mergedData)
+                // console.log(mergedData)
                 setIsLoading(false);
             } catch (error) {
                 console.error('Error:', error);
@@ -81,7 +81,7 @@ const ArribosLogicComponent = () => {
         setShowArrivedOnly(!showArrivedOnly);
         setSortByArrival(false);  
         const filteredArribos = arribos.filter(arribo => arribo.formattedLlegada === 'Ya llego'|| arribo.formattedLlegada === 'Llega hoy');
-        console.log(filteredArribos)
+        // console.log(filteredArribos)
         // setDisplayArribos(filteredArribos);
         handleUpdateDisplayArribos(filteredArribos); // Inicializa displayServicios con los datos originales
     };

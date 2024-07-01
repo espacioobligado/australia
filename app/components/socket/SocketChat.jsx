@@ -76,20 +76,20 @@ const SocketChat = (id) => {
   const [chatId, setChatId] = useState();
 
   useEffect(() => {
-    console.log('1---------------------------')
-        console.log(id.value[0])
-        console.log('1---------------------------')
+    // console.log('1---------------------------')
+        // console.log(id.value[0])
+        // console.log('1---------------------------')
     if(cheuqueo) {
-      console.log('2---------------------------')
-        console.log(id.value[0])
-        console.log('2---------------------------')
+      // console.log('2---------------------------')
+        // console.log(id.value[0])
+        // console.log('2---------------------------')
       if(id.value.length !== 0){
         // console.log('wwwwwwwwwwwwwwww',id.value)
         // console.log('userId1publicacionDeUsuario',id.value[1])
         setChatId(id.value[0])
-        console.log('3---------------------------')
-        console.log(id.value[0])
-        console.log('3---------------------------')
+        // console.log('3---------------------------')
+        // console.log(id.value[0])
+        // console.log('3---------------------------')
         setPoster(id.value[1])
         // console.log('userId2',id.value[2])
         setChatter(id.value[2])

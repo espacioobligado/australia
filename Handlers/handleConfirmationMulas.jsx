@@ -59,8 +59,8 @@ export const handleConfirmationMulas = async (playAudio,e, toast, formData, setI
     }
 
     const { region, zone, llegada, salidaDe, otherLocation,provincia } = formData;
-    console.log(1,otherLocation)
-    console.log(2,formData)
+    // console.log(1,otherLocation)
+    // console.log(2,formData)
     if (region && zone && llegada && salidaDe) {
         if(salidaDe === 'Otro' && otherLocation === '')
             {
