@@ -12,7 +12,6 @@ export const scrollToElementRed = (elements, lastValue ) => {
                     setTimeout(() => {
                         element.classList.remove('blinkRed');  
                     }, 5000);
-                }  
                     // toast.error(`Tu usuario es ${usuario} y creaste esta publicación!`, {
                     //     position: "top-center",
                     //     autoClose: false,
@@ -23,14 +22,18 @@ export const scrollToElementRed = (elements, lastValue ) => {
                     //     theme: "light",
                     //     style:{marginTop:'5px'}
                     // });
-                }
+                }  
     };
 
     elements.some((objeto, index) => {
         if (objeto.id === lastValue) {
             scrollToDiv(index);
         } else{
-            window.location.reload()      
+            setTimeout(() => {
+                window.location.reload()      
+            }, 1000);
+            console.log('reload') 
         }
         return false;  
     });
+}
