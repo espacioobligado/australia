@@ -1,6 +1,6 @@
 import express from 'express';
 import { createServer } from 'http';
-// import { createServer as createHTTPSServer } from 'https';
+import { createServer as createHTTPSServer } from 'https';
 import next from 'next';
 import { Server } from 'socket.io';
 import pkg from 'pg';
@@ -43,7 +43,7 @@ reconnect();
 const dev = process.env.NODE_ENV !== 'production';
 // const hostname = 'localhost';
 const hostname = 'quienviene.vercel.app';
-const port = 3000;
+// const port = 443;
 const app = next({ dev, hostname, port });
 const handle = app.getRequestHandler();
 
@@ -71,14 +71,16 @@ app.prepare().then(() => {
   //     ca: [fs.readFileSync('root.crt')]
   // };
 
-  //   const httpsServer = createHTTPSServer(httpsOptions, expressApp);
-  //   const io = new Server(httpsServer, {
-  //     connectionStateRecovery: {},
-  //   });
+    // const httpsServer = createHTTPSServer(httpsOptions, expressApp);
+    // const io = new Server(httpsServer, {
+    //   connectionStateRecovery: {},
+    // });
     
-  // const httpServer = createServer(expressApp);
+  const httpServer = createServer(expressApp);
   const io = new Server(httpServer, {
-    connectionStateRecovery: {},
+    cors: {
+      origin: '*', // Ajustar según tus necesidades
+    }
   });
 
   let chat_id;
@@ -147,6 +149,10 @@ app.prepare().then(() => {
     });
   });
 
+  httpServer.listen(3000, () => {
+    console.log(`Server running on http://${hostname}: 3000}`);
+  });
+
   async function updateChatStatus(estado, chat_id) {
     try {
       let updateQuery = 'UPDATE chat SET activo = $1 WHERE id = $2';
@@ -157,6 +163,24 @@ app.prepare().then(() => {
     }
   }
 
+  // httpServer.once('error', (err) => {
+  //   console.error(err);
+  // });
+
+  // process.on('SIGINT', async () => {
+  //   console.log('Received SIGINT. Shutting down gracefully...');
+  //   await updateChatStatus(false, chat_id);
+  //   process.exit(0);
+  // });
+
+  // process.on('exit', async () => {
+  //   console.log('Server is shutting down...');
+  //   await updateChatStatus(false, chat_id);
+  // });
+
+  // httpServer.listen(port, () => {
+  //   console.log(`> Ready on http://${hostname}:${port}`);
+  // });
 });
 
 const lastConnection = async (cookie, res) => {

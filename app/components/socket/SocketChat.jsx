@@ -3,6 +3,7 @@ import { socket } from './socket';
 import { useEffect, useState, useRef  } from "react";
 import Image from 'next/image';
 import link from '../../../public/telegram.svg';
+import { error } from 'console';
 
 const handleMessage2 = (msg) => {
     if (msg) {
@@ -102,7 +103,11 @@ const SocketChat = (id) => {
   //recibo chat id , ahora que ?
 
   useEffect(() => {
-            socket.connect();
+    try{
+      socket.connect();
+    }catch(e){
+      console.log('------', e,' eee')
+    }
             setCheuqueo(true)
             return () => {
               socket.disconnect(); // Desconectar el socket al desmontar el componente
