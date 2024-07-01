@@ -4,6 +4,7 @@ export const scrollToElementRed = (elements, lastValue ) => {
 // ,usuario
     const scrollToDiv = (id) => {
                 const element = document.getElementById(`${id}`);
+
                 if (element) {
                     element.scrollIntoView({ behavior: 'smooth' });
                     element.classList.add('blinkRed');
@@ -22,19 +23,16 @@ export const scrollToElementRed = (elements, lastValue ) => {
                     //     theme: "light",
                     //     style:{marginTop:'5px'}
                     // });
+                } else{
+                    window.location.reload()      
+                    console.log('reload') 
                 }
     };
 
     elements.some((objeto, index) => {
         if (objeto.id === lastValue) {
-            try {
-                scrollToDiv(index);
-            } catch (error) {
-                window.location.reload()      
-                console.log('reload') 
-            }
+            scrollToDiv(index);
         }
         return false;  
     });
 }
- 
