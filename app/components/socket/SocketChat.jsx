@@ -106,7 +106,7 @@ const SocketChat = (id) => {
     try{
       socket.connect();
     }catch(e){
-      console.log('------', e,' eee')
+      {console.log('------', e,' eee')}
     }
             setCheuqueo(true)
             return () => {
