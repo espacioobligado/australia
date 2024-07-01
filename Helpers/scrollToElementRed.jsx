@@ -7,7 +7,7 @@ export const scrollToElementRed = (elements, lastValue ) => {
                 if (element) {
                     element.scrollIntoView({ behavior: 'smooth' });
                     element.classList.add('blinkRed');
-                console.log('a')
+                
                     setTimeout(() => {
                         element.classList.remove('blinkRed');  
                     }, 5000);
@@ -22,9 +22,6 @@ export const scrollToElementRed = (elements, lastValue ) => {
                     //     theme: "light",
                     //     style:{marginTop:'5px'}
                     // });
-                }else{
-                    console.log('b')
-                    window.location.reload()
                 }
     };
 

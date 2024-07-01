@@ -69,7 +69,16 @@ socket.on('event', msg => {
     // }
 })                  //HACER DOBLE TODO Y CADA ARCHIVO TENGA SUS DIFERENCIAS, ABSTRACTO REACTTT
 
+const a = await fetch("https://api.vercel.com/v7/certs/prj_s3dWZJHHZUNzxBO76B4qvWY6ZHHP", {
+  "headers": {
+    "Authorization": "Bearer <TOKEN>"
+  },
+  "method": "get"
+})
+
 const SocketChat = (id) => {
+ 
+
   const [channel, ably] = useChannel(room, (message) => {
     setMessages((prev) => [...prev, message]);
   });
@@ -79,6 +88,28 @@ const SocketChat = (id) => {
   const [poster, setPoster] = useState()
   const [chatId, setChatId] = useState();
 
+  useEffect(() => {
+    const a = async () => {
+      try {
+        const response = await fetch("https://api.vercel.com/v7/certs/prj_s3dWZJHHZUNzxBO76B4qvWY6ZHHP", {
+          headers: {
+            "Authorization": "Bearer <TOKEN>"
+          },
+          method: "get"
+        });
+        const data = await response.json();
+        console.log('Respuesta de la API:', data);
+        // Haz algo con los datos de respuesta si es necesario
+      } catch (error) {
+        console.error('Error al obtener datos de api:', error);
+        // Manejar el error según sea necesario
+      }
+    }
+    console.log('w')
+      a()
+      console.log('w')
+  },[])
+  
   useEffect(() => {
     // console.log('1---------------------------')
         // console.log(id.value[0])
