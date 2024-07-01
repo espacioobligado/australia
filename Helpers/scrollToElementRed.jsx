@@ -27,7 +27,12 @@ export const scrollToElementRed = (elements, lastValue ) => {
 
     elements.some((objeto, index) => {
         if (objeto.id === lastValue) {
-            scrollToDiv(index);
+            try {
+                scrollToDiv(index);
+            } catch (error) {
+                window.location.reload()       
+                scrollToDiv(index);         
+            }
         }
         return false;  
     });

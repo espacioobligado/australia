@@ -16,6 +16,7 @@
     "@nextui-org/react": "^2.4.2",
     "@types/ua-parser-js": "^0.7.39",
     "@vercel/postgres": "^0.7.2",
+    "ably": "^2.2.0",
     "axios": "^1.6.8",
     "bcrypt": "^5.1.1",
     "cookie": "^0.6.0",

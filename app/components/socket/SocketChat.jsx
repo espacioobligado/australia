@@ -3,6 +3,7 @@ import { socket } from './socket';
 import { useEffect, useState, useRef  } from "react";
 import Image from 'next/image';
 import link from '../../../public/telegram.svg';
+import { useChannel } from 'ably/react';
 
 const handleMessage2 = (msg) => {
     if (msg) {
@@ -69,6 +70,9 @@ socket.on('event', msg => {
 })                  //HACER DOBLE TODO Y CADA ARCHIVO TENGA SUS DIFERENCIAS, ABSTRACTO REACTTT
 
 const SocketChat = (id) => {
+  const [channel, ably] = useChannel(room, (message) => {
+    setMessages((prev) => [...prev, message]);
+  });
   const [cheuqueo, setCheuqueo] = useState(false);
   const [ultimoMensajeId, setUltimoMensajeId] = useState(null); 
   const [chatter, setChatter] = useState()
