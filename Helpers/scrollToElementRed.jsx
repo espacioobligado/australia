@@ -30,7 +30,6 @@ export const scrollToElementRed = (elements, lastValue) => {
             scrollToDiv(index);
             return true; // Detener la iteración al encontrar el elemento
         }
-        return false; // Continuar iterando
     });
 
     // Si no se encuentra el elemento, recargar la página después de 1 segundo
