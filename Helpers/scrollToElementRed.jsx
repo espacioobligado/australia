@@ -30,7 +30,8 @@ export const scrollToElementRed = (elements, lastValue ) => {
             try {
                 scrollToDiv(index);
             } catch (error) {
-                window.location.reload()       
+                window.location.reload()      
+                console.log('reload') 
             }
         }
         return false;  
