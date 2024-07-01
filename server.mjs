@@ -157,7 +157,7 @@ app.prepare().then(() => {
     }
   }
 
-  httpServer.once('error', (err) => {
+  httpsServer.once('error', (err) => {
     console.error(err);
   });
 
@@ -172,7 +172,7 @@ app.prepare().then(() => {
     await updateChatStatus(false, chat_id);
   });
 
-  httpServer.listen(port, () => {
+  httpsServer.listen(port, () => {
     console.log(`> Ready on http://${hostname}:${port}`);
   });
 });
