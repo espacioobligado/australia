@@ -6,19 +6,13 @@ export const scrollToElementRed = (elements, lastValue ) => {
                 const element = document.getElementById(`${id}`);
 
                 if (element) {
-                    try {
-                        
-                    
                     element.scrollIntoView({ behavior: 'smooth' });
                     element.classList.add('blinkRed');
                 
                     setTimeout(() => {
                         element.classList.remove('blinkRed');  
                     }, 5000);
-                } catch (error) {
-                    window.location.reload()      
-                    console.log('reload') 
-                }
+                }  
                     // toast.error(`Tu usuario es ${usuario} y creaste esta publicación!`, {
                     //     position: "top-center",
                     //     autoClose: false,
@@ -29,8 +23,6 @@ export const scrollToElementRed = (elements, lastValue ) => {
                     //     theme: "light",
                     //     style:{marginTop:'5px'}
                     // });
-                } else{
-                    console.log('wopa')
                 }
     };
 
@@ -38,8 +30,7 @@ export const scrollToElementRed = (elements, lastValue ) => {
         if (objeto.id === lastValue) {
             scrollToDiv(index);
         } else{
-            console.log('asd' )
+            window.location.reload()      
         }
         return false;  
     });
-}
