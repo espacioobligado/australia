@@ -43,8 +43,8 @@ reconnect();
 const dev = process.env.NODE_ENV !== 'production';
 // const hostname = 'localhost';
 const hostname = 'quienviene.vercel.app';
-// const port = 3000;
-const app = next({ dev, hostname });
+const port = 443;
+const app = next({ dev, hostname, port });
 const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
@@ -172,9 +172,9 @@ app.prepare().then(() => {
     await updateChatStatus(false, chat_id);
   });
 
-  // httpServer.listen(port, () => {
-  //   console.log(`> Ready on http://${hostname}:${port}`);
-  // });
+  httpServer.listen(port, () => {
+    console.log(`> Ready on http://${hostname}:${port}`);
+  });
 });
 
 const lastConnection = async (cookie, res) => {
