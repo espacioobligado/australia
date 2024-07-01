@@ -29,12 +29,16 @@ export const scrollToElementRed = (elements, lastValue ) => {
                     //     theme: "light",
                     //     style:{marginTop:'5px'}
                     // });
+                } else{
+                    console.log('wopa')
                 }
     };
 
     elements.some((objeto, index) => {
         if (objeto.id === lastValue) {
             scrollToDiv(index);
+        } else{
+            console.log('asd' )
         }
         return false;  
     });
